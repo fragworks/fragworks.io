@@ -1,0 +1,28 @@
+{
+  "name": "fragworks.io",
+  "version": "0.0.0",
+  "description": "Fragworks website",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fragworks/fragworks.io.git"
+  },
+  "keywords": [
+    "frag",
+    "fragworks",
+    "gamedev",
+    "nim"
+  ],
+  "author": "Fragworks (http://fragworks.io)",
+  "contributors": [
+    "Ross Hadden <rosshadden@gmail.com> (https://github.com/rosshadden)",
+    "Zachary Carter <carterza@gmail.com> (https://github.com/zacharycarter)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fragworks/fragworks.io/issues"
+  },
+  "homepage": "https://github.com/fragworks/fragworks.io#readme"
+}
