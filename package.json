@@ -4,16 +4,16 @@
   "description": "Fragworks website",
   "main": "index.js",
   "scripts": {
-    "build": "npm run copy && npm run compile",
-    "clean": "rm -rf dist",
+    "build": "npm run clean && npm run copy && npm run compile",
+    "clean": "rm -rf dist && mkdir dist",
     "compile": "tsc",
-    "copy": "cp -R views styles index.html dist && cp node_modules/bootstrap/dist/css/*.min.css dist/styles",
+    "copy": "cp -R views styles index.html dist",
     "lint": "tslint -t codeFrame src/**/*.ts",
     "prepublish": "npm run build",
     "serve": "http-server dist --silent",
     "start": "npm run watch | npm run serve",
     "test": "tslint -t stylish src/**/*.ts",
-    "watch": "nodemon --exec 'npm run copy' --watch styles --watch views --watch index.html | npm run compile -- -w"
+    "watch": "npm run clean && nodemon --exec 'npm run copy' --watch styles --watch views --watch index.html | npm run compile -- -w"
   },
   "repository": {
     "type": "git",
