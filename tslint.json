@@ -1,0 +1,13 @@
+{
+	"extends": "tslint:recommended",
+	"rules": {
+		"curly": false,
+		"indent": [ true, "tabs" ],
+		"member-access": false,
+		"no-console": false,
+		"no-empty": false,
+		"quotemark": [ true, "single" ],
+		"trailing-comma": false,
+		"whitespace": [ true, "check-branch", "check-decl", "check-operator", "check-module", "check-separator", "check-type" ]
+	}
+}

@@ -4,6 +4,16 @@
   "description": "Fragworks website",
   "main": "index.js",
   "scripts": {
+    "build": "npm run copy && npm run compile",
+    "clean": "rm -rf dist",
+    "compile": "tsc",
+    "copy": "cp -R views styles index.html dist && cp node_modules/bootstrap/dist/css/*.min.css dist/styles",
+    "lint": "tslint -t codeFrame src/**/*.ts",
+    "prepublish": "npm run build",
+    "serve": "http-server dist --silent",
+    "start": "npm run watch | npm run serve",
+    "test": "tslint -t stylish src/**/*.ts",
+    "watch": "nodemon --exec 'npm run copy' --watch styles --watch views --watch index.html | npm run compile -- -w"
   },
   "repository": {
     "type": "git",
@@ -24,5 +34,17 @@
   "bugs": {
     "url": "https://github.com/fragworks/fragworks.io/issues"
   },
-  "homepage": "https://github.com/fragworks/fragworks.io#readme"
+  "homepage": "https://github.com/fragworks/fragworks.io#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "nodemon": "^1.11.0",
+    "tslint": "^4.5.1",
+    "typescript": "^2.2.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "lodash": "^4.17.4",
+    "page": "^1.7.1",
+    "umbrellajs": "^2.6.7"
+  }
 }
