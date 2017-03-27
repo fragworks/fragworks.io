@@ -2,9 +2,9 @@
 	"compileOnSave": false,
 	"compilerOptions": {
 		"allowJs": true,
-		"baseUrl": "./src",
-		"module": "commonjs",
-		"outDir": "./dist",
+		"module": "system",
+		"moduleResolution": "node",
+		"outFile": "./dist/app.js",
 		"rootDir": "./src",
 		"target": "es5"
 	},
