@@ -4,6 +4,7 @@
   "description": "Fragworks website",
   "main": "index.js",
   "scripts": {
+    "aoeu": "webpack",
     "build": "npm run init && npm run compile && npm run copy",
     "clean": "rm -rf dist && npm run init",
     "compile": "tsc",
@@ -38,12 +39,17 @@
   },
   "homepage": "https://github.com/fragworks/fragworks.io#readme",
   "devDependencies": {
+    "awesome-typescript-loader": "^3.1.2",
+    "css-loader": "^0.27.3",
+    "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.28.0",
     "http-server": "^0.9.0",
     "nodemon": "^1.11.0",
+    "style-loader": "^0.16.0",
     "systemjs": "^0.19.47",
+    "tslib": "^1.6.0",
     "tslint": "^5.0.0-dev.0",
-    "typescript": "^2.3.0-dev.20170326",
+    "typescript": "^2.2.2",
     "webpack": "^2.3.2"
   },
   "dependencies": {
