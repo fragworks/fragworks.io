@@ -1,14 +1,21 @@
 {
-	"compileOnSave": false,
 	"compilerOptions": {
-		"allowJs": true,
-		"module": "system",
 		"moduleResolution": "node",
-		"outFile": "./dist/app.js",
-		"rootDir": "./src",
-		"target": "es5"
+		"target": "es2015",
+		"lib": [ "es2016", "dom" ],
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"sourceMap": true,
+		"declaration": true,
+		"declarationDir": "dist/types",
+		"typeRoots": [
+		  "node_modules/@types"
+		]
 	},
 	"include": [
 		"src"
-	]
+	],
+	"awesomeTypescriptLoaderOptions": {
+		"useBabel": true
+	}
 }

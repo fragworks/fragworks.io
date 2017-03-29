@@ -1,3 +1,2 @@
-// import page = require('page');
-console.log('ha');
-// page();
+export default class App {
+}

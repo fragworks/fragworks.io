@@ -1,5 +1,6 @@
 {
 	"extends": "tslint:recommended",
+  "extends:vet": "tslint-config-standard",
 	"rules": {
 		"curly": false,
 		"indent": [ true, "tabs" ],
