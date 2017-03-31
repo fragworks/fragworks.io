@@ -4,8 +4,9 @@
   "description": "Fragworks website",
   "main": "dist/main.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p",
+    "build": "npm run clean && NODE_ENV=production webpack -p",
     "build:dev": "webpack",
+    "clean": "rm -rf dist",
     "lint": "tslint -e **/node_modules/** -e **/dist/** -t codeFrame **/*.ts ",
     "lint:old": "tslint -t codeFrame src/**/*.ts",
     "start": "webpack-dev-server",
@@ -79,6 +80,7 @@
     "babel-core": "^6.24.0",
     "babel-preset-env": "^1.2.2",
     "colors": "^1.1.2",
+    "copy-webpack-plugin": "^4.0.1",
     "html-webpack-plugin": "^2.28.0",
     "jest": "^19.0.2",
     "lodash": "^4.17.4",

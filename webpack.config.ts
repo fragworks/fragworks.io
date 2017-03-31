@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const { TsConfigPathsPlugin, CheckerPlugin } = require('awesome-typescript-loader')
 const TypedocWebpackPlugin = require('typedoc-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const env = process && process.env && process.env.NODE_ENV
 const serverPort = process.env.npm_package_config_devPort || 8081
 const dev = !(env && env === 'production')
@@ -11,7 +12,7 @@ const dev = !(env && env === 'production')
 /**
  * Update this variable if you change your library name
  */
-const title = 'Fragwokrs';
+const title = 'Fragworks';
 const libraryName = 'app';
 const plugins = [
 	new CheckerPlugin(),
@@ -23,7 +24,8 @@ const plugins = [
 		template: path.join(__dirname, 'index.html'),
 		hash: true,
 		chunks: [ 'common', 'index' ]
-	})
+	}),
+	new CopyWebpackPlugin([ { from: 'views', to: 'views' } ])
 ]
 
 let entry: string | string[] = [
@@ -77,7 +79,7 @@ export default {
 			}
 		]
 	},
-	plugins: plugins,
+	plugins,
 	devServer: {
 		hot: true,
 		contentBase: path.resolve(__dirname, 'dist'),
