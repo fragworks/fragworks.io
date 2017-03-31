@@ -1,5 +1,6 @@
 import Route from './route';
-const { u, ajax } = require('umbrellajs');
+import net from '../net';
+const { u } = require('umbrellajs');
 
 const getPath = (path: string) => {
 	if (path.endsWith('/')) path += 'index';
@@ -10,10 +11,8 @@ const index = {
 	path: '*',
 	fn: (ctx: any) => {
 		const path = getPath(ctx.pathname);
-		console.log(path);
-		ajax(path, {}, (err: Error, body: string) => {
-			u('#content').html(body);
-		});
+		net.request(path)
+			.then((body: string) => u('#content').html(body));
 	}
 };
 
