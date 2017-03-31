@@ -25,7 +25,10 @@ const plugins = [
 		hash: true,
 		chunks: [ 'common', 'index' ]
 	}),
-	new CopyWebpackPlugin([ { from: 'views', to: 'views' } ])
+	new CopyWebpackPlugin([
+		{ from: 'views', to: 'views' },
+		{ from: 'styles', to: 'styles' }
+	])
 ]
 
 let entry: string | string[] = [
