@@ -1,9 +1,7 @@
-const page = require('page');
+import Route from './routes/route';
 
-export interface Route {
-	path: string;
-	fn: () => void;
-}
+const page = require('page');
+// window.page = page;
 
 export default class Router {
 	constructor(routes: Route[]) {

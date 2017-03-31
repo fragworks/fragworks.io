@@ -2,7 +2,7 @@
   "name": "fragworks.io",
   "version": "0.0.0",
   "description": "Fragworks website",
-  "main": "dist/app.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "NODE_ENV=production webpack -p",
     "build:dev": "webpack",

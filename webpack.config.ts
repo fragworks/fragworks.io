@@ -14,74 +14,74 @@ const dev = !(env && env === 'production')
 const title = 'Fragwokrs';
 const libraryName = 'app';
 const plugins = [
-  new CheckerPlugin(),
-  new TsConfigPathsPlugin(),
-  new HtmlWebpackPlugin({
-    inject: true,
-    title,
-    filename: 'index.html',
-    template: path.join(__dirname, 'template/index.html'),
-    hash: true,
-    chunks: ['common', 'index']
-  })
+	new CheckerPlugin(),
+	new TsConfigPathsPlugin(),
+	new HtmlWebpackPlugin({
+		inject: true,
+		title,
+		filename: 'index.html',
+		template: path.join(__dirname, 'index.html'),
+		hash: true,
+		chunks: [ 'common', 'index' ]
+	})
 ]
 
 let entry: string | string[] = [
-  // 'react-hot-loader/patch',
-  `webpack-dev-server/client?http://localhost:${serverPort}`,
-  // bundle the client for webpack-dev-servers and connect to the provided endpoint
-  'webpack/hot/only-dev-server',
-  // bundle the client for hot reloading
-  `./src/${libraryName}.ts`
+	// 'react-hot-loader/patch',
+	`webpack-dev-server/client?http://localhost:${serverPort}`,
+	// bundle the client for webpack-dev-servers and connect to the provided endpoint
+	'webpack/hot/only-dev-server',
+	// bundle the client for hot reloading
+	`./src/${libraryName}.ts`
 ]
 
 if (dev === false) {
-  plugins.push(new TypedocWebpackPlugin(
-    {
-      theme: 'minimal',
-      out: 'docs',
-      target: 'es6',
-      ignoreCompilerErrors: true
-    },
-    'src'
-  ))
-  entry = path.join(__dirname, `src/${libraryName}.ts`)
+	plugins.push(new TypedocWebpackPlugin(
+		{
+			theme: 'minimal',
+			out: 'docs',
+			target: 'es6',
+			ignoreCompilerErrors: true
+		},
+		'src'
+	))
+	entry = path.join(__dirname, `src/${libraryName}.ts`)
 } else {
-  plugins.push(new webpack.HotModuleReplacementPlugin())
+	plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 
 export default {
-  entry: {
-    index: entry
-  },
-  // Currently cheap-module-source-map is broken https://github.com/webpack/webpack/issues/4176
-  devtool: 'source-map',
-  output: {
-    path: path.join(__dirname, 'dist'),
-    libraryTarget: 'umd',
-    library: _.camelCase(libraryName),
-    filename: `${libraryName}.js`
-  },
-  resolve: {
-    extensions: ['.ts', '.js']
-  },
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        use: [
-          {
-            loader: 'awesome-typescript-loader'
-          }
-        ]
-      }
-    ]
-  },
-  plugins: plugins,
-  devServer: {
-    hot: true,
-    contentBase: path.resolve(__dirname, 'dist'),
-    port: serverPort,
-    publicPath: '/'
-  }
+	entry: {
+		index: entry
+	},
+	// Currently cheap-module-source-map is broken https://github.com/webpack/webpack/issues/4176
+	devtool: 'source-map',
+	output: {
+		path: path.join(__dirname, 'dist'),
+		libraryTarget: 'umd',
+		library: _.camelCase(libraryName),
+		filename: `${libraryName}.js`
+	},
+	resolve: {
+		extensions: [ '.ts', '.js' ]
+	},
+	module: {
+		rules: [
+			{
+				test: /\.ts$/,
+				use: [
+					{
+						loader: 'awesome-typescript-loader'
+					}
+				]
+			}
+		]
+	},
+	plugins: plugins,
+	devServer: {
+		hot: true,
+		contentBase: path.resolve(__dirname, 'dist'),
+		port: serverPort,
+		publicPath: '/'
+	}
 }
