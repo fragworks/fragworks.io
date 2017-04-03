@@ -1,6 +1,6 @@
+const { u } = require('umbrellajs');
 import Route from './route';
 import net from '../net';
-const { u } = require('umbrellajs');
 
 const getPath = (path: string) => {
 	if (path.endsWith('/')) path += 'index';
@@ -9,7 +9,7 @@ const getPath = (path: string) => {
 
 const index = {
 	path: '*',
-	fn: (ctx: any) => {
+	fn: (ctx: PageJS.Context) => {
 		const path = getPath(ctx.pathname);
 		net.request(path)
 			.then((body: string) => u('#content').html(body));

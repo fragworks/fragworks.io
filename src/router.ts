@@ -1,11 +1,9 @@
+import * as page from 'page';
 import Route from './routes/route';
-
-const page = require('page');
-// window.page = page;
 
 export default class Router {
 	constructor(routes: Route[]) {
-		for (let route of routes) {
+		for (const route of routes) {
 			page(route.path, route.fn);
 		}
 

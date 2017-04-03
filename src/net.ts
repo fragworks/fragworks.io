@@ -6,7 +6,7 @@ export default {
 			ajax(endpoint, options, (err: Error, body: string) => {
 				if (err) return reject(err);
 				resolve(body);
-			})
+			});
 		});
 	},
 
@@ -16,4 +16,4 @@ export default {
 			body: params
 		});
 	}
-}
+};

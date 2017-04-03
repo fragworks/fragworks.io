@@ -1,6 +1,6 @@
 interface Route {
 	path: string;
-	fn: (ctx: any, next: any) => void;
+	fn: (ctx: Object, next: Function) => void;
 }
 
 export default Route;
