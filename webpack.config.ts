@@ -27,7 +27,7 @@ const plugins = [
 	}),
 	new CopyWebpackPlugin([
 		{ from: 'views', to: 'views' },
-		{ from: 'styles', to: 'styles' }
+		{ from: 'vendor', to: 'vendor' }
 	])
 ]
 
@@ -55,6 +55,21 @@ if (dev === false) {
 	plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 
+const tsRule = {
+	test: /\.ts$/,
+	loader: 'awesome-typescript-loader'
+};
+
+const sassRule = {
+	test: /\.scss/,
+	loader: [ 'style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap' ]
+};
+
+const rules = [
+	tsRule,
+	sassRule
+];
+
 export default {
 	entry: {
 		index: entry
@@ -68,19 +83,10 @@ export default {
 		filename: `${libraryName}.js`
 	},
 	resolve: {
-		extensions: [ '.ts', '.js' ]
+		extensions: [ '.ts', '.js', '.scss' ]
 	},
 	module: {
-		rules: [
-			{
-				test: /\.ts$/,
-				use: [
-					{
-						loader: 'awesome-typescript-loader'
-					}
-				]
-			}
-		]
+		rules
 	},
 	plugins,
 	devServer: {
